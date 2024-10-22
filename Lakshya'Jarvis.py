@@ -43,12 +43,13 @@ def get_weather():
         return None
 
 def execute_command(command):
-    if 'time' in command:
+    if 'jarvis what is current time' in command:
+        
         current_time = datetime.datetime.now().strftime("%H:%M:%S")
-        speak(f"The current time is {current_time}.")
-    elif 'date' in command:
+        speak(f" boss The current time is {current_time}.")
+    elif 'jarvis tell me todays date' in command:
         current_date = datetime.datetime.now().strftime("%Y-%m-%d")
-        speak(f"Today's date is {current_date}.")
+        speak(f" boss Today's date is {current_date}.")
     elif 'temperature' in command:
         weather = get_weather()
         if weather:
@@ -56,16 +57,19 @@ def execute_command(command):
             speak(f"The current temperature in {CITY} is {temperature} degrees Celsius with {description}.")
         else:
             speak("Sorry, I couldn't fetch the weather information.")
-    elif 'open youtube' in command:
+    elif ' jarvis open youtube' in command:
         webbrowser.open("https://www.youtube.com")
-        speak("Opening YouTube.")
+        speak("Opening YouTube boss.")
     elif 'how are you' in command:
-        speak("I am just a program, but thanks for asking!")
-    elif 'exit' in command or 'quit' in command:
-        speak("Goodbye!")
+        speak("i am fine boss what about you boss")
+    elif 'i am also fine jarvis' in command:
+        speak(" good to hear that boss")
+    
+    elif 'jarvis shutdown' in command:
+        speak("shuting down gooodbyee boss!")
         return False
     else:
-        speak("I can't help with that yet.")
+        speak("i don't understand that boss give me the brief detail about that topic.")
     
     return True
 
@@ -79,5 +83,8 @@ def main():
 
 if __name__ == "__main__":
     main()
+
+
+
 
 
